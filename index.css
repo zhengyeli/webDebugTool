@@ -111,6 +111,8 @@ body.connected .settings {
 	margin-right: auto;
 }
 
+/* Hook? */
+body.universal button#universal,
 body.color button#color,
 body.customize button#customize {
 	background: #888;
@@ -132,6 +134,8 @@ body.customize button#customize {
 	display: none;
 }
 
+/* Hook? */
+body.universal div#universalView,
 body.color div#colorView,
 body.customize div#customizeView {
 	display: block;

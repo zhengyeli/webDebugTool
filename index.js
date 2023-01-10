@@ -1,15 +1,19 @@
 /* Pills */
 
 document.getElementById('color').addEventListener('click', (e) => {
-	document.body.classList.remove('color', 'customize');
+	document.body.classList.remove('color', 'customize', 'universal');
 	document.body.classList.add('color');
 });
 
 document.getElementById('customize').addEventListener('click', (e) => {
-	document.body.classList.remove('color', 'customize');
+	document.body.classList.remove('color', 'customize', 'universal');
 	document.body.classList.add('customize');
 });
 
+document.getElementById('universal').addEventListener('click', (e) => {
+	document.body.classList.remove('color', 'customize', 'universal');
+	document.body.classList.add('universal');
+});
 
 
 
@@ -29,8 +33,34 @@ function injectStyle(c) {
 	}
 }
 
+/* universal swatches */
 
+var controls = document.getElementById('universalView');
 
+controls.addEventListener('mousedown', handleUniversalEvent);
+controls.addEventListener('touchstart', handleUniversalEvent);
+
+function handleUniversalEvent(event) {
+	if (event.target.tagName != 'BUTTON') {
+		return;
+	}
+	var message = Uint8Array.from([0xaa, 1, 0]);
+	switch (event.target.dataset.value)
+	{
+						
+		case 'onoff':
+			{
+				message[0] = 0x33;
+				message[1] = 0x01;
+				message[2] = !BluetoothBulb._ONOFF;
+				BluetoothBulb.setData(message);
+			break;
+			};
+	}
+
+	/* 取消事件的默认动作。 */
+	event.preventDefault();
+}
 
 
 /* Color swatches */
