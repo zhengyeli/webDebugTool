@@ -56,6 +56,14 @@ function handleUniversalEvent(event) {
 				BluetoothBulb.setData(message);
 			break;
 			};
+		default:
+			{
+				array = hexStrToArr(event.target.dataset.value);
+				if (array.length > 20)
+					console.log('error ble msg data!');
+				BluetoothBulb.setData(array);
+				break;
+			};
 	}
 
 	/* 取消事件的默认动作。 */
@@ -156,3 +164,14 @@ function normalizeColor(rgb) {
 	}
 }  
 
+
+function hexStrToArr(str) {
+	// hex字符串长度通常都是2的倍数，但为了放止意外，判断一下长度，不是2的倍数就在最前面补0
+	if (str.length % 2) str = "0" + str
+	let arr = []
+	for (let i = 0; i < str.length; i += 2) {
+		let a = parseInt(str.slice(i, i + 2), 16)
+		arr.push(a)
+	}
+	return arr
+}

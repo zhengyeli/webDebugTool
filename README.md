@@ -26,3 +26,9 @@ It's actually not that difficult. The animation is applied to the drawing of the
 ## Why??
 
 Because it's fun. And I got to play around with all kinds of new specifications like WebBluetooth, CSS Grids, Viewport units and SVG.
+
+## What is this??
+
+秉持学习的态度，打算通过webbluetooth，实现在手机端控制外部低功耗蓝牙设备，发现以下问题：
+1. webbluetooth在电脑端浏览器（Edge，360浏览器）工作良好，无法在手机端浏览器（小米浏览器，夸克浏览器）工作，只能在谷歌浏览器工作。
+2. 如果要实现浏览器远程访问该网页方式，需要基于https通信，基于http通信webbluetooth将会无法工作。
