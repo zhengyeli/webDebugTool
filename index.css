@@ -1,0 +1,80 @@
+/* 全局变量 */
+:root {
+    --header-height: 60px;
+    --tail-height: 30px;
+
+    --content-height: calc(100% - var(--header-height) - var(--tail-height)); 
+    --left-content-width: 100px;
+    --toolbar-height: 40px;
+}
+
+
+html,
+body {
+    height: 100%;
+}
+
+* {
+    /** 这里的 * 代表所有的元素 **/
+    padding: 0;
+    /** 内边距**/
+    margin: 0;
+    /** 外边距 **/
+}
+
+
+.header {
+    height: var(--header-height);
+    text-align: center;
+    background-color: rgb(54, 52, 52);
+    color: rgb(231, 215, 215);
+}
+
+.content{
+    margin-top: 0;
+    margin-left: 0;
+    height: var(--content-height);
+    background-color: rgb(48, 47, 49);
+
+    /* 相对位置 */
+    position: relative;
+}
+
+.toolbar {
+    position: absolute;
+    height: var(--toolbar-height);
+    width: 100%;
+    background-color: rgb(71, 67, 67);
+}
+
+.toolbar button {
+    margin: 10px;
+}
+
+.left-content{
+    width: var(--left-content-width);
+    height: calc(100% - var(--toolbar-height));
+    background-color: rgb(71, 67, 67);
+
+    position: absolute;
+    top: var(--toolbar-height);
+}
+
+.right-content{
+    background-color: rgb(44, 38, 38);
+    width: calc(100% - var(--left-content-width) - 10px);
+    height: calc(100% - var(--toolbar-height));
+    margin-left: var(--left-content-width); /* 外边框 */
+    padding-left: 10px;                     /* 内边框 */
+
+    position: absolute;
+    top: var(--toolbar-height);
+}
+
+.tail{
+    height: var(--tail-height);
+    background-color: rgb(51, 123, 206);
+    text-align: center;
+    font-size: x-small;
+    color: white;
+}
